@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'appium'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+task runTests(type: Test) {
+    useTestNG {
+        parallel = "classes"
+        testLogging.exceptionFormat='full'
+        threadCount = Integer.parseInt(System.getProperty('parallel', '3'))
+        useDefaultListeners = false
+        listeners << 'utils.TestListener'
+        includeGroups System.getProperty('tag', 'NONE')
+        outputDirectory = file("$buildDir/" + System.getProperty('tag', 'NONE'))
+    }
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.9.0'
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+    implementation 'com.aventstack:extentreports:5.1.1'
+}
