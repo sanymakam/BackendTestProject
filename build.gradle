@@ -15,7 +15,7 @@ task runTests(type: Test) {
         testLogging.exceptionFormat='full'
         threadCount = Integer.parseInt(System.getProperty('parallel', '3'))
         useDefaultListeners = false
-        listeners << 'utils.TestListener'
+//        listeners << 'utils.TestListener'
         includeGroups System.getProperty('tag', 'NONE')
         outputDirectory = file("$buildDir/" + System.getProperty('tag', 'NONE'))
     }
