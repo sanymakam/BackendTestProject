@@ -2,6 +2,7 @@ package controllers;
 
 import base.BaseRequests;
 import io.restassured.response.Response;
+import models.CreateUserRequest;
 
 import java.util.HashMap;
 
@@ -11,11 +12,10 @@ public class UserControllers {
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
 
-        Object payload = "{\n" +
-                "    \"name\": \"morpheus\",\n" +
-                "    \"job\": \"leader\"\n" +
-                "}";
+        CreateUserRequest createUserRequest = new CreateUserRequest();
+        createUserRequest.setName("morpheus");
+        createUserRequest.setJob("leader");
 
-        return BaseRequests.post("https://reqres.in/api/users", headers, payload);
+        return BaseRequests.post("https://reqres.in/api/users", headers, createUserRequest);
     }
 }
