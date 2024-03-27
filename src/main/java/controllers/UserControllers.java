@@ -4,6 +4,7 @@ import base.BaseRequests;
 import io.restassured.response.Response;
 import models.CreateUserRequest;
 import models.CreateUserResponse;
+import utils.ConfigReader;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ public class UserControllers {
         createUserRequest.setName(name);
         createUserRequest.setJob(job);
 
-        return BaseRequests.post("https://reqres.in/api/users", headers, createUserRequest);
+        return BaseRequests.post(ConfigReader.getConfigValue("url") + "users", headers, createUserRequest);
     }
 
     public CreateUserResponse constructActualResponse(Response response) {
