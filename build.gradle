@@ -14,8 +14,7 @@ task runTests(type: Test) {
         parallel = "classes"
         testLogging.exceptionFormat='full'
         threadCount = Integer.parseInt(System.getProperty('parallel', '3'))
-        useDefaultListeners = false
-//        listeners << 'utils.TestListener'
+        useDefaultListeners = true
         includeGroups System.getProperty('tag', 'NONE')
         outputDirectory = file("$buildDir/" + System.getProperty('tag', 'NONE'))
     }
@@ -31,5 +30,5 @@ dependencies {
     testImplementation 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
-
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 }
