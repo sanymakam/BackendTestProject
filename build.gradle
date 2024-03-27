@@ -13,7 +13,7 @@ task runTests(type: Test) {
     useTestNG {
         parallel = "classes"
         testLogging.exceptionFormat='full'
-        threadCount = Integer.parseInt(System.getProperty('parallel', '3'))
+        threadCount = Integer.parseInt(System.getProperty('parallel', '5'))
         useDefaultListeners = true
         includeGroups System.getProperty('tag', 'NONE')
         outputDirectory = file("$buildDir/" + System.getProperty('tag', 'NONE'))
