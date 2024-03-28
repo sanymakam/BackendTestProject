@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class UserControllers {
     public Response createUser(String name, String job) {
-        HashMap<String,String> headers = new HashMap<>();
+        HashMap<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
 
@@ -39,6 +39,6 @@ public class UserControllers {
     }
 
     public void verifyTheResponse(CreateUserResponse actualResponseResponse, CreateUserResponse expectedResponseResponse) {
-        assertThat("Expected and actual response does not match",actualResponseResponse,equalTo(expectedResponseResponse));
+        assertThat("Expected and actual response does not match", actualResponseResponse, equalTo(expectedResponseResponse));
     }
 }

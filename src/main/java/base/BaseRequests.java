@@ -5,11 +5,9 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
-
 public class BaseRequests {
     public static Response post(String url, Map<String, String> headers, Object payLoad) {
-        return RestAssuredClient.post(url,headers,payLoad);
+        return RestAssuredClient.post(url, headers, payLoad);
     }
 
     public static Response get(String url) {
@@ -17,6 +15,6 @@ public class BaseRequests {
     }
 
     public static Response patch(String url, Map<String, String> headers) {
-        return RestAssuredClient.patch(url,headers);
+        return RestAssuredClient.patch(url, headers);
     }
 }
