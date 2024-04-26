@@ -18,6 +18,7 @@ task runTests(type: Test) {
         includeGroups System.getProperty('tag', 'NONE')
         outputDirectory = file("$buildDir/" + System.getProperty('tag', 'NONE'))
         listeners << 'utils.Listner'
+        listeners << 'utils.AnnotationTransformer'
         listeners << 'utils.ExtentReporter'
         listeners << 'org.uncommons.reportng.HTMLReporter'
     }
